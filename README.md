@@ -31,7 +31,11 @@ Copy `faster-random.php` into `wp-content/plugins/` and activate it. It does not
 
 Against the WordPress 7.2 beta 5 development source on a local SQLite test site: no draft, password-protected post or page was ever returned; empty archives return a 404 like core; the picks were fair in a 12,000-draw test; and the cache strategy follows trashing and publishing.
 
-Not tested: MySQL or MariaDB timings. SQLite timings are directional only. If you benchmark it on a big site, please open an issue with your numbers.
+On MySQL 8.4 (small shared-hosting test site, 250,006 rows in the posts table, 50,001 eligible posts), core's query averaged 178.6 ms and `probe` averaged 2.1 ms, about 85 times faster. No draft, password-protected post or page was returned in 360 requests.
+
+The `cache` strategy was tested on the same site with a file-backed stand-in for an object cache: 0.8 ms per warm pick, about 225 ms to rebuild the list after a post was published or trashed, and the list followed both changes.
+
+Not tested: `cache` against real Redis or Memcached, MariaDB, or the fairness test on MySQL. This is one site, so treat it as one data point. If you benchmark it on a big site, please open an issue with your numbers.
 
 ## Just want it off?
 
