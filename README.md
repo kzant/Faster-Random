@@ -4,7 +4,7 @@ WordPress 7.2 adds a `/random/` URL that redirects visitors to a random post. Co
 
 Everything else stays as core built it: the same eligibility rules (published posts, no password, randomable post types), the same 302 redirect and headers, and any `pre_get_posts` exclusions other plugins add.
 
-Read the write-up: [Stop Shuffling the Whole Deck](https://www.zant.com/) (link coming once the post is live).
+Read the write-up: [Stop Shuffling the Whole Deck](https://www.zant.com/making-wordpress-7-2-random-faster/).
 
 ## Strategies
 
